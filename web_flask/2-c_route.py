@@ -4,6 +4,18 @@ from flask import Flask
 app = Flask(__name__)
 
 
+@app.route("/", strict_slashes=False)
+def hello():
+    """ C Hello """
+    return "Hello HBNB!"
+
+
+@app.route("/hbnb", strict_slashes=False)
+def hbnb():
+    """ <text>: hbnb """
+    return "HBNB"
+
+
 @app.route("/c/is_fun", strict_slashes=False)
 def ctext():
     """ C text """
