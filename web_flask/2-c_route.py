@@ -16,16 +16,11 @@ def hbnb():
     return "HBNB"
 
 
-@app.route("/c/is_fun", strict_slashes=False)
+@app.route("/c/<text>", strict_slashes=False)
 def ctext():
-    """ C text """
-    return "C is fun"
-
-
-@app.route("/c/cool", strict_slashes=False)
-def ctext2():
-    """ Second C Text """
-    return "C cool"
+    """ displays C followed by value of <text> """
+    text = text.replace("_", " ")
+    return "C {}".format(text)
 
 
 if __name__ == '__main__':
