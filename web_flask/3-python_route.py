@@ -23,8 +23,9 @@ def ctext(text):
     return "C {}".format(text)
 
 
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def pytext(text):
+def pytext(text="is cool"):
     """ displays 'Python' followed by text in variable <text> """
     text = text.replace("_", " ")
     return "Python {}".format(text)
