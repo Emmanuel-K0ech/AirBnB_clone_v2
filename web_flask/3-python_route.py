@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Route /python/<text>"""
+""" Route /c/<text>"""
 from flask import Flask
 app = Flask(__name__)
 
@@ -16,29 +16,18 @@ def hbnb():
     return "HBNB"
 
 
-@app.route("/c/is_fun", strict_slashes=False)
-def ctext():
-    """ C text """
-    return "C is fun"
+@app.route("/c/<text>", strict_slashes=False)
+def ctext(text):
+    """ displays C followed by value of <text> """
+    text = text.replace("_", " ")
+    return "C {}".format(text)
 
 
-@app.route("/c/cool", strict_slashes=False)
-def ctext2():
-    """ Second C Text """
-    return "C cool"
-
-
-@app.route("/python/is_magic", strict_slashes=False)
-def pytext():
-    """ Python <text> """
-    return "Python is magic"
-
-
-@app.route("/python", strict_slashes=False)
-@app.route("/python/", strict_slashes=False)
-def pytext2():
-    """ Python <Text2> """
-    return "Python is cool"
+@app.route("/python/<text>", strict_slashes=False)
+def pytext(text):
+    """ displays 'Python' followed by text in variable <text> """
+    text = text.replace("_", " ")
+    return "Python {}".format(text)
 
 
 if __name__ == '__main__':
